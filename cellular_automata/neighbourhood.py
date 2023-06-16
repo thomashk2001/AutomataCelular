@@ -34,12 +34,12 @@ class neighbourhood:
 
   def moore_generic(self, m, r, c, reach):
     total_neighbours = 0
-    for i in range(-reach, reach + 1, 1):
-       for j in range(-reach, reach + 1, 1):
+    for i in range(r - reach, r + reach + 1, 1):
+       for j in range(c - reach, c + reach + 1, 1):
           if i == r and j == c:
              pass
-          elif self.out_of_bounds(m, r, c):
-             total_neighbours += self.frontier.is_on(m, r, c)
+          elif self.out_of_bounds(m, i, j):
+             total_neighbours += self.frontier.is_on(m, i, j)
           else:
               total_neighbours += m[i, j]
     return total_neighbours
